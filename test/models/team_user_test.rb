@@ -28,4 +28,30 @@ class TeamUserTest < ActiveSupport::TestCase
     tu.role = 'owner'
     assert tu.save, "Could not save the team_user with a valid role"
   end
+
+  test "scope owner" do
+    nate = users(:nate)
+    britt = users(:brittany)
+    team = teams(:avengers)
+
+    TeamUser.new(user_id: nate.id, team_id: team.id, role: 'member').save
+    TeamUser.new(user_id: britt.id, team_id: team.id, role: 'owner').save
+
+    owners = team.users.merge(TeamUser.owner)
+    assert_equal 1, owners.count, "Team owner count was not as expected"
+    assert_equal 'bmarley', owners.first.login, "Team owner was not expected user"
+  end
+
+  test "scope member" do
+    nate = users(:nate)
+    britt = users(:brittany)
+    team = teams(:avengers)
+
+    TeamUser.new(user_id: nate.id, team_id: team.id, role: 'member').save
+    TeamUser.new(user_id: britt.id, team_id: team.id, role: 'owner').save
+
+    members = team.users.merge(TeamUser.member)
+    assert_equal 1, members.count, "Team member count was not as expected"
+    assert_equal 'nmarley', members.first.login, "Team member was not expected user"
+  end
 end
