@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  login: MyString
-  email: MyString
-  type: 1
+user:
+  login: nmarley
+  email: nathan.marley@example.com
+  type: 'User'
 
-two:
-  login: MyString
-  email: MyString
-  type: 1
+team:
+  login: avengers
+  email: avengers@marvel.example.com
+  type: 'Team'
