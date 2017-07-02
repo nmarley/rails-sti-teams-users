@@ -3,5 +3,8 @@ class TeamUser < ActiveRecord::Base
   belongs_to :team
   belongs_to :user
 
+  scope :owner, -> { where(role: 'owner') }
+  scope :member, -> { where(role: 'member') }
+
   validates :role, inclusion: { in: %w[owner member] }
 end
