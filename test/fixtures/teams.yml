@@ -1,4 +1,9 @@
-team:
+avengers:
   login: avengers
   email: avengers@marvel.example.com
+  type: 'Team'
+
+justice_league:
+  login: justus
+  email: justice@dc.example.com
   type: 'Team'
