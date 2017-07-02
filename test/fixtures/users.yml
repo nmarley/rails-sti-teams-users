@@ -1,0 +1,9 @@
+nate:
+  login: nmarley
+  email: nathan.marley@example.com
+  type: 'User'
+
+brittany:
+  login: bmarley
+  email: bmarley@example.com
+  type: 'User'

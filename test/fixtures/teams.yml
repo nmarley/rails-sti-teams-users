@@ -1,0 +1,4 @@
+team:
+  login: avengers
+  email: avengers@marvel.example.com
+  type: 'Team'

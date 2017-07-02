@@ -3,5 +3,5 @@ class TeamUser < ActiveRecord::Base
   belongs_to :team
   belongs_to :user
 
-  validates :role, presence: true, in: %w[owner member]
+  validates :role, inclusion: { in: %w[owner member] }
 end
